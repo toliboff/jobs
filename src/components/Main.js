@@ -1,8 +1,12 @@
 import React from 'react';
+import Header from './Header';
 
 const Main = () => (
   <div>
-    Main
+    <Header />
+    <ul className="categories">
+      <li>Finance</li>
+    </ul>
   </div>
 );
 
