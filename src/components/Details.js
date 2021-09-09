@@ -6,7 +6,7 @@ import Header from './Header';
 const Details = () => {
   const state = useSelector((state) => state.companiesReducer);
   return (
-    <div>
+    <div data-testid="details-component">
       <Header title="company" count={String(state.totalCap)} filter={state.filter} />
       <ul className="companies">
         {state.companies.map((company) => (
