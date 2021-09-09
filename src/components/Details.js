@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { BiRightArrowCircle } from 'react-icons/bi';
 import Header from './Header';
 
 const Details = () => {
@@ -9,12 +10,13 @@ const Details = () => {
       <Header title="company" count={state.totalCap} />
       <ul className="companies">
         {state.companies.map((company) => (
-          <li key={company.symbol}>
+          <li key={company.symbol} className="company">
             <span>{company.name}</span>
-            <div>
+            <div className="companyCap">
               $
               {company.marketCap}
-              <span>B</span>
+              <span>&nbsp;billion</span>
+              <BiRightArrowCircle className="arrow" />
             </div>
           </li>
         ))}

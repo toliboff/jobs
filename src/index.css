@@ -38,7 +38,7 @@ li {
   align-items: center;
   text-align: end;
   background-color: #fc5193;
-  background-size: 30%;
+  background-size: 20%;
   background-position: 15%;
   background-repeat: no-repeat;
   height: 250px;
@@ -95,6 +95,29 @@ li {
 
 .marketCap {
   font-size: 0.9rem;
+}
+
+/* COMPANIES */
+.companies {
+  background-color: #fc5193;
+}
+
+.company {
+  padding: 1.5rem 1rem;
+  font-size: 1.2rem;
+}
+
+.companies li:nth-child(even) {
+  background-color: #cf4278;
+}
+
+.companyCap {
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  margin-left: 1rem;
 }
 
 /* dark #ec4c8a
