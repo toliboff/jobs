@@ -17,12 +17,11 @@ const Main = () => {
       <Header title="Markets" count={state.totalCap} />
       <ul className="categories">
         {state.markets.map((market) => (
-          <li key={market}>
+          <li key={market.name}>
             <NavLink to="/details">
-              <span>{market}</span>
+              <span>{market.name}</span>
               <div>
-                {state.list.filter((exchange) => exchange.exchangeShortName === market)
-                  .map((a) => a.marketCap).reduce((a, b) => a + b)}
+                {market.marketCap}
                 <span>USD</span>
               </div>
             </NavLink>
