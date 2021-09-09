@@ -7,7 +7,7 @@ const Details = () => {
   const state = useSelector((state) => state.companiesReducer);
   return (
     <div>
-      <Header title="company" count={state.totalCap} />
+      <Header title="company" count={state.totalCap} filter={state.filter} />
       <ul className="companies">
         {state.companies.map((company) => (
           <li key={company.symbol} className="company">

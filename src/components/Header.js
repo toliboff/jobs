@@ -1,11 +1,11 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { IoMdMic, IoIosArrowBack } from 'react-icons/io';
 import { GoGear } from 'react-icons/go';
 import images from '../assets/images';
 
-const Header = ({ title, count }) => (
+const Header = ({ title, count, filter }) => (
   <div className="header">
     <div className="navigation">
       <NavLink to="/"><IoIosArrowBack className="controls" /></NavLink>
@@ -20,12 +20,12 @@ const Header = ({ title, count }) => (
     </div>
     <div
       className="metrics-title"
-      style={{ backgroundImage: `url('${images.STOCK}')` }}
+      style={{ backgroundImage: `url('${images[filter]}')` }}
     >
       <div />
       <div>
         <h1>
-          {title}
+          {filter}
         </h1>
         <div className="metrics">
           $
@@ -42,3 +42,9 @@ const Header = ({ title, count }) => (
 );
 
 export default Header;
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+  count: PropTypes.string.isRequired,
+  filter: PropTypes.string.isRequired,
+};
