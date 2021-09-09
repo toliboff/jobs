@@ -23,6 +23,7 @@ li {
   align-items: center;
   padding: 1rem 0;
   background-color: #cf4278;
+  font-size: 1.3rem;
 }
 
 .controls {
@@ -48,11 +49,68 @@ li {
 }
 
 .stats {
-  background-color: #cf4278;
+  background-color: #cf4278ef;
   text-transform: uppercase;
   padding: 0.3rem;
+}
+
+/* MAIN PAGE */
+.categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #fc5193;
+}
+
+.category {
+  height: 250px;
+  font-size: 1.5rem;
+  background-size: 40%;
+  background-position: top 15% right 50%;
+  background-repeat: no-repeat;
+}
+
+.category:nth-child(4n-2),
+.category:nth-child(4n-1) {
+  background-color: #cf4278;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border: 1px solid transparent;
+}
+
+.link:hover {
+  border: 1px solid #fff;
+}
+
+.exchange {
+  margin-top: auto;
+  text-align: right;
+}
+
+.marketCap {
+  font-size: 0.9rem;
 }
 
 /* dark #ec4c8a
 darker #cf4278
 light: #fc5193 */
+
+@media (max-width: 540px) {
+  .categories {
+    grid-template-columns: 1fr;
+  }
+
+  .category:nth-child(even) {
+    background-color: #fc5193;
+  }
+
+  .category:nth-child(odd) {
+    background-color: #cf4278;
+  }
+}

@@ -3,7 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { IoMdMic, IoIosArrowBack } from 'react-icons/io';
 import { GoGear } from 'react-icons/go';
-import bg from '../STOCK.png';
+import images from '../assets/images';
 
 const Header = ({ title, count }) => (
   <div className="header">
@@ -20,7 +20,7 @@ const Header = ({ title, count }) => (
     </div>
     <div
       className="metrics-title"
-      style={{ backgroundImage: `url('${bg}')` }}
+      style={{ backgroundImage: `url('${images.STOCK}')` }}
     >
       <div />
       <div>
