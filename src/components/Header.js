@@ -44,7 +44,13 @@ const Header = ({ title, count, filter }) => (
 export default Header;
 
 Header.propTypes = {
-  title: PropTypes.string.isRequired,
-  count: PropTypes.string.isRequired,
-  filter: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  count: PropTypes.string,
+  filter: PropTypes.string,
+};
+
+Header.defaultProps = {
+  title: 'company',
+  count: '0',
+  filter: 'Stock',
 };

@@ -21,6 +21,7 @@ export const fetchCompanies = (payload) => async (dispatch) => {
   const companies = {
     companies: getCompanies(json, payload),
     totalCap: calculateTotal(json, payload),
+    filter: payload,
   };
 
   dispatch({
