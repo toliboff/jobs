@@ -9,7 +9,7 @@ const Details = () => {
       <Header title="Company" count={state.totalCap} />
       <ul className="companies">
         {state.companies.map((company) => (
-          <li key={company.name}>
+          <li key={company.symbol}>
             <span>{company.name}</span>
             <div>
               $

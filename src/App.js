@@ -1,12 +1,10 @@
-import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Main from './components/Main';
 import Details from './components/Details';
-import store from './redux/configStore';
 
 function App() {
   return (
-    <Provider store={store}>
+    <>
       <Router>
         <div className="App">
           <Switch>
@@ -19,7 +17,7 @@ function App() {
           </Switch>
         </div>
       </Router>
-    </Provider>
+    </>
   );
 }
 
