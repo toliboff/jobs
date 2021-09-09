@@ -1,25 +1,24 @@
-const FETCH_ALL_JOBS = 'JOBS/FETCH_ALL_JOBS';
+const FETCH_ALL_MARKETS = 'JOBS/FETCH_ALL_MARKETS';
+const initialState = { markets: [], companies: [] };
 
-export const fetchCategories = async () => {
-  const jobList = await fetch('https://financialmodelingprep.com/api/v3/profile/AAPL?apikey=6c2d08df2b4645477a2cfe6926f2b36f');
-  const jobs = await jobList.json();
-  console.log('Fetched categories: ', jobs);
-};
+export const fetchAllMarkets = () => async (dispatch) => {
+  const fetchedData = await fetch('https://financialmodelingprep.com/api/v3/stock-screener?marketCapMoreThan=1000000000&betaMoreThan=1&volumeMoreThan=10000&apikey=6c2d08df2b4645477a2cfe6926f2b36f');
+  const json = await fetchedData.json();
+  const market = {
+    markets: Array.from(new Set(json.map((market) => market.exchangeShortName))),
+    list: json,
+    totalCap: json.map((cap) => cap.marketCap).reduce((a, b) => a + b),
+  };
 
-fetchCategories();
-
-export const fetchCategoryJobs = () => async (dispatch) => {
-  const jobList = await fetch('url');
-  const jobs = await jobList.text();
   dispatch({
-    action: FETCH_ALL_JOBS,
-    payload: jobs,
+    type: FETCH_ALL_MARKETS,
+    payload: market,
   });
 };
 
-const reducer = (state = [], action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_ALL_JOBS: return action.payload;
+    case FETCH_ALL_MARKETS: return action.payload;
     default: return state;
   }
 };
