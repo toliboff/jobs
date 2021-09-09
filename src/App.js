@@ -1,8 +1,17 @@
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Main from './components/Main';
 import Details from './components/Details';
+import { fetchAllMarkets } from './redux/categories/categories';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAllMarkets());
+  }, []);
+
   return (
     <>
       <Router>
