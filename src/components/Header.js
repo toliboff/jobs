@@ -8,7 +8,10 @@ const Header = ({ title, count }) => (
   <div className="header">
     <div className="navigation">
       <NavLink to="/"><IoIosArrowBack /></NavLink>
-      <span>{title}</span>
+      <span>
+        {title}
+        &nbsp;capitalisation
+      </span>
       <IoMdMic />
       <GoGear />
     </div>
@@ -17,8 +20,9 @@ const Header = ({ title, count }) => (
         {title}
       </h1>
       <div className="metrics">
+        $
         <span className="count">{count}</span>
-        <span>USD</span>
+        <span>B</span>
       </div>
     </div>
     <div className="stats">
