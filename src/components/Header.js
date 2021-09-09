@@ -8,7 +8,7 @@ const Header = ({ title, count }) => (
   <div className="header">
     <div className="navigation">
       <NavLink to="/"><IoIosArrowBack /></NavLink>
-      <span>title</span>
+      <span>{title}</span>
       <IoMdMic />
       <GoGear />
     </div>
@@ -18,10 +18,13 @@ const Header = ({ title, count }) => (
       </h1>
       <div className="metrics">
         <span className="count">{count}</span>
-        <span>jobs</span>
+        <span>USD</span>
       </div>
     </div>
-    <div className="stats">STATS BY CATEGORY</div>
+    <div className="stats">
+      STATS BY&nbsp;
+      {title}
+    </div>
   </div>
 );
 
