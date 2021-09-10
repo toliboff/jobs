@@ -1,4 +1,5 @@
 import { render, screen, cleanup } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import store from '../../redux/configStore';
@@ -20,4 +21,10 @@ test('should render Details component', () => {
   render(<Provider store={store}><Router><Details /></Router></Provider>);
   const detailsElement = screen.getByTestId('details-component');
   expect(detailsElement).toHaveTextContent('company capitalisation');
+});
+
+test('matches snapshot', () => {
+  const tree = renderer
+    .create(<Provider store={store}><Router><Details /></Router></Provider>).toJSON();
+  expect(tree).toMatchSnapshot();
 });
