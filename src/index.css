@@ -120,9 +120,18 @@ li {
   margin-left: 1rem;
 }
 
-/* dark #ec4c8a
-darker #cf4278
-light: #fc5193 */
+.filter-input {
+  background-color: #cf4278;
+  border: none;
+  outline: none;
+  padding: 0.3rem 0.5rem;
+  width: 100%;
+  border-bottom: 1px solid #eb81a9;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.76);
+}
 
 @media (max-width: 540px) {
   .categories {
