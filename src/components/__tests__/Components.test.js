@@ -10,21 +10,23 @@ afterEach(() => {
   cleanup();
 });
 
-test('should render Main component', () => {
-  render(<Provider store={store}><Router><Main /></Router></Provider>);
-  const mainElement = screen.getByTestId('main-component');
-  expect(mainElement).toBeInTheDocument();
-  expect(mainElement).toHaveTextContent('market capitalisation');
-});
+describe('Testing components', () => {
+  test('should render Main component', () => {
+    render(<Provider store={store}><Router><Main /></Router></Provider>);
+    const mainElement = screen.getByTestId('main-component');
+    expect(mainElement).toBeInTheDocument();
+    expect(mainElement).toHaveTextContent('market capitalisation');
+  });
 
-test('should render Details component', () => {
-  render(<Provider store={store}><Router><Details /></Router></Provider>);
-  const detailsElement = screen.getByTestId('details-component');
-  expect(detailsElement).toHaveTextContent('company capitalisation');
-});
+  test('should render Details component', () => {
+    render(<Provider store={store}><Router><Details /></Router></Provider>);
+    const detailsElement = screen.getByTestId('details-component');
+    expect(detailsElement).toHaveTextContent('company capitalisation');
+  });
 
-test('matches snapshot', () => {
-  const tree = renderer
-    .create(<Provider store={store}><Router><Details /></Router></Provider>).toJSON();
-  expect(tree).toMatchSnapshot();
+  test('matches snapshot', () => {
+    const tree = renderer
+      .create(<Provider store={store}><Router><Details /></Router></Provider>).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
