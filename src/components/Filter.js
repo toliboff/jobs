@@ -1,9 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-// eslint-disable-next-line react/prop-types
 const Filter = ({ state, setMarket }) => {
   const filterMarket = (market) => {
-    // eslint-disable-next-line react/prop-types
     const filtered = state.filter((marketName) => marketName.name
       .startsWith(market));
     setMarket(filtered);
@@ -15,3 +14,10 @@ const Filter = ({ state, setMarket }) => {
 };
 
 export default Filter;
+Filter.propTypes = {
+  state: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    filter: PropTypes.func,
+  }).isRequired,
+  setMarket: PropTypes.func.isRequired,
+};
