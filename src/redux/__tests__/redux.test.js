@@ -62,4 +62,26 @@ describe('Testing redux functions', () => {
     const marketCapitalisation = await fetchMarketData();
     expect(marketCapitalisation).toEqual(stock);
   });
+
+  test('should fetch data from AMEX stock market', async () => {
+    const stock = [
+      {
+        id: 4,
+        ticker: 'SNY',
+        companyName: 'AMD Inc.',
+        marketCap: 623456789123,
+        exchangeShortName: 'AMEX',
+      },
+      {
+        id: 5,
+        ticker: 'SNY',
+        companyName: 'AMD Inc.',
+        marketCap: 523456789123,
+        exchangeShortName: 'AMEX',
+      },
+    ];
+    const filterBy = 'AMEX';
+    const companyCapitalisation = await fetchCompanyData(filterBy);
+    expect(companyCapitalisation).toEqual(stock);
+  });
 });
