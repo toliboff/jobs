@@ -5,7 +5,7 @@
 # Screenshot
 ![screenshot](screenshot.png)
 
-[Live Demo Link](https://tolibs-marketcap.netlify.app/)
+[Live Demo Link](https://market-capitalisation.netlify.app)
 # Built With
 
 - React
