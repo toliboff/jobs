@@ -40,7 +40,6 @@ export const fetchMarketData = async () => {
 };
 
 export const fetchCompanyData = async (market) => {
-  console.log('Mock API');
   const wholeMarket = [
     {
       id: 1,
