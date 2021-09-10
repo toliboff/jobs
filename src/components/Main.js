@@ -15,7 +15,7 @@ const Main = () => {
 
   const state = useSelector((state) => state.stockmarketReducer);
   return (
-    <div>
+    <div data-testid="main-component">
       <Header title="market" count={state.totalCap} filter="STOCK" />
       <ul className="categories">
         {state.markets.map((market, index) => (

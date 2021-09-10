@@ -1,9 +1,11 @@
+import { fetchCompanyData } from '../api';
+
 const FETCH_COMPANIES = 'JOBS/FETCH_COMPANIES';
 const initialState = { companies: [], totalCap: [] };
 
 const intoBillion = (amount) => (amount / 1000000000).toFixed(2);
 
-const getCompanies = (arr, exchange) => arr.filter((ex) => ex.exchangeShortName === exchange)
+const getCompanies = (arr) => arr
   .map((m) => ({
     name: m.companyName,
     symbol: m.symbol,
@@ -16,8 +18,7 @@ const calculateTotal = (arr, exchange) => intoBillion(arr
   .reduce((a, b) => a + b));
 
 export const fetchCompanies = (payload) => async (dispatch) => {
-  const fetchedData = await fetch('https://financialmodelingprep.com/api/v3/stock-screener?marketCapMoreThan=1000000000&betaMoreThan=1&volumeMoreThan=10000&apikey=7eac2e3f73d161944273338301184f8e');
-  const json = await fetchedData.json();
+  const json = await fetchCompanyData(payload);
   const companies = {
     companies: getCompanies(json, payload),
     totalCap: calculateTotal(json, payload),

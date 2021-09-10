@@ -1,9 +1,11 @@
+import { fetchMarketData } from '../api';
+
 const FETCH_ALL_MARKETS = 'JOBS/FETCH_ALL_MARKETS';
 const initialState = { markets: [], companies: [] };
 
 const intoBillion = (amount) => (amount / 1000000000).toFixed(2);
 
-const getMarkets = (arr) => {
+export const getMarkets = (arr) => {
   const markets = Array.from(new Set(arr.map((market) => market.exchangeShortName)));
   return markets.map((m) => ({
     name: m,
@@ -13,12 +15,11 @@ const getMarkets = (arr) => {
   }));
 };
 
-const calculateTotal = (arr) => intoBillion(arr.map((cap) => cap.marketCap)
+export const calculateTotal = (arr) => intoBillion(arr.map((cap) => cap.marketCap)
   .reduce((a, b) => a + b));
 
 export const fetchAllMarkets = () => async (dispatch) => {
-  const fetchedData = await fetch('https://financialmodelingprep.com/api/v3/stock-screener?marketCapMoreThan=1000000000&betaMoreThan=1&volumeMoreThan=10000&apikey=7eac2e3f73d161944273338301184f8e');
-  const json = await fetchedData.json();
+  const json = await fetchMarketData();
   const market = {
     markets: getMarkets(json),
     totalCap: calculateTotal(json),
