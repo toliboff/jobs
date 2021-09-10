@@ -15,9 +15,9 @@ const Filter = ({ state, setMarket }) => {
 
 export default Filter;
 Filter.propTypes = {
-  state: PropTypes.shape({
+  state: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     filter: PropTypes.func,
-  }).isRequired,
+  })).isRequired,
   setMarket: PropTypes.func.isRequired,
 };
